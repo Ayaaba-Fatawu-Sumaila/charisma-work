@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr Mighty Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+    :root{
+    --priamry-dark:#0a192f;
+   --primary-light:#112240;
+   --accent:#64ffda;
+   
+   --lighter-text: #a8b2d1;
+   --white: #e6f1ff;
+   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--lighter-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.mono{
+    font-family:'Roboto Mono',monospace;
+}
+  
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+h1, h2, h3, h4 {
+    color: var(--light-text);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size:clamp(10px,2vw,20px);
+    line-height:1.1;
+    font:bold;
+}
+
+h2{
+  font-size:clamp(28px,4vw,40px);
+  position:relative;
+  display:inline-block;
+  margin-bottom:60px;
+}
+
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background: var(--accent); 
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--light-text);
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Header */
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 20px 0;
+    transition: var(--transition);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    color: var(--accent);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 40px;
+}
+
+.nav-links a {
+    color: var(--light-text);
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 24px;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .hero-title {
+            font-size: clamp(25px, 5vw, 50px);
+            margin: 0 0 20px;
+        }
+
+        .hero-highlight {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 600px;
+            font-size: 20px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background:var(--primary-light);
+            z-index: 1;    
+        }
+        
+        
+        /* About Section */
+        #about {
+            background:#1A2A44;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-width: 100%;
+        }
+
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+        }
+
+        .skill-item i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Projects Section */  
+        #projects{
+            background: var(--primary-light);
+        }
+        .projects-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background:#1A2A44;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.5);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image:after {
+            opacity: 1;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .project-description {
+            margin-bottom: 20px;
+            min-height: 90px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        /* PUBLICATION SECTION */
+         #publication{
+            background-color:#1A2A44;
+            padding: 60px 20px; 
+        } 
+        
+        .publication-item i{
+            color: var(--accent);
+        }
+        .publication-grid{
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }  
+
+
+        /* EDUCATION */
+        .edu-entry {
+            background: #1A2A44;
+            /* background-color: rgba(10, 25, 50, 1); */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 20px;
+            max-width: 700px;
+            min-height: 180px; 
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+          
+        .details p {
+            margin-top: 4px; 
+            margin-bottom: 0;
+            line-height: 1.4; 
+        }
+
+        .details p:first-of-type {
+            font-weight: 500;
+            margin-bottom: 2px;
+          }
+        .year {
+            font-weight: 800;
+            background:var(--primary-light);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+            color: white;     
+        }
+
+        h1{
+            font-size:15px;
+          }
+
+          #education{
+            background:var(--primary-light);
+          
+        }
+
+          
+
+
+    /* Contact Section */
+        #contact{
+            background: #1A2A44;
+        }
+        .contact-grid {
+            display:flex;
+            flex-direction:column;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #1A2A44;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 20px;
+        }
+
+        .contact-text h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            
+            background: rgba(17, 34, 64, 0.7);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 4px;
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+         /* Footer */
+         footer {
+            background:var(--primary-light);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(168, 178, 209, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 14px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+
+
+</style>
+<body>  
+<!-- Header -->
+      <header>
+        <div class="container">
+         <nav>
+            <div class="logo">
+                 <span>▷</span>DR MIGHTY
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publication">Publication</a></li>
+                <li><a href="#education">Education</a></li> 
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div> 
+         </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h3 class="hero-subtitle fade-in">Hi, I'm</h3>
+                <h1 class="hero-title fade-in">Dr Mighty Abra Ayidzoe</h1>
+                <h2 class="hero-title fade-in">I build <span class="hero-highlight">intelligent systems</span>.</h2>
+                <p class="hero-description fade-in">
+                    My professional experience includes positions as a Machine Learning Engineer,
+                    LLM Engineer,SOC Analyst,Artificial  Engineer,Data Scientist and Cybersecurity Analyst.
+                </p> 
+                <a href="#projects" class="btn fade-in">View My Projects</a>  
+            </div>
+        </div>
+      </section>
+      
+        
+    <!--ABOUT SECTION-->
+    <section id="about">
+        <div class="container">
+            <h2 class="fade-in">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>
+                        with four years of experience as a Machine Learning Engineer and Lecturer in Ghana's Bono Region,
+                        I built and implemented  network-based recognition solutions utilizing Microsoft Azure AI tool(Vision,Document Intelligence,Open AI)
+                        for automation and document processing.
+                    </p>
+                    <p>
+                        Published peer-reviewed research in AI/Computer vision,oversaw Azure-based data annotation pipelines,
+                        and led cross-functional teams in creating scalable ML models for web/mobile platforms.
+                    </p>
+                    <p>
+                        At the same time I was overseeing students and participating in community outreach while also teaching undergraduate/postgratuate courses
+                        in Artificial intelligence,Software engineering and cloud computing.Python ,multimodal deep learning,transformers and 
+                        computer vision are core skills.
+                    </p>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://raw.githubusercontent.com/Ayaaba-Fatawu-Sumaila/charisma-image/main/madam.jpg" alt="Data Scientist">
+                </div>
+                </div>
+            </div>    
+        </div>   
+   </section> 
+
+    <!--PROJECT SECTION-->
+<section id="projects">
+    <div class="container">
+      <h2 class="fade-in">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in" data-category="ml">
+          <div class="project-image">
+            <a href="https://ai4afs-maize.streamlit.app/" target="_blank"> 
+                <img src="https://raw.githubusercontent.com/Ayaaba-Fatawu-Sumaila/charisma-image/main/maize.jpg" alt="Maize Disease Detection">
+            </a>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Model for Maize Disease Detection</h3>
+            <p class="project-description">
+               Developed a predictive deep learning model to detect maize disease.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">CNN</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ai4afs-maize.streamlit.app/" class="mono"><i class="fas fa-external-link-alt"></i>Visit App</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in" data-category="ml">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Ayaaba-Fatawu-Sumaila/charisma-image/main/tomatoes.jpg" alt="Tomato Disease Detection">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Model for Tomato Disease Detection</h3>
+            <p class="project-description">
+                Developed a predictive deep learning model to detect tomato disease.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">CNN</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ai4afs--tomato.streamlit.app/" class="mono"><i class="fas fa-external-link-alt"></i>Visit App</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in" data-category="ml">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Ayaaba-Fatawu-Sumaila/charisma-image/main/cashew.jpg" alt="Cashew Disease Detection">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Model for Cashew Disease Detection</h3>
+            <p class="project-description">
+                Developed a predictive deep learning model to detect cashew disease.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Streamlit</span>
+            </div>
+            <div class="project-links">
+              <a href=" https://ai4afs-cashew.streamlit.app/" class="mono"><i class="fas fa-external-link-alt"></i>Visit App</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="project-card fade-in" data-category="ml">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Charisma-Jnr/cassava.img/main/Cassava.jpg" alt="Cassava Disease Detection">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Model for Cassava Disease Detection</h3>
+            <p class="project-description">
+                Developed a predictive deep learning model to detect cassava disease.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">CNN</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ai4afs-cassava.streamlit.app/" class="mono"><i class="fas fa-external-link-alt"></i>Vist App</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Publication -->
+        <section id="publication">
+          <div class="container">
+            <h2 class="fade-in">Publication</h2>
+            <div class="publication-grid">
+              <div class="publication-item">
+                <i class="fa fa-caret-right"></i>
+                Gabor capsule network with preprocessing blocks
+                for the recognition of complex images.
+                (M Abra Ayidzoe,Y Yu,PK Mensah,J Cai,K Adu Tang) 
+                 Machine Vision and Applications 32(4),91,2021. 
+               </div>
+               <div class="publication-item">
+                <i class="fa fa-caret-right"></i>
+                 SinoCaps:Recognition of colorectal polyps using
+                 sinogram capsule network.
+                 (M Abra Ayidzoe,Y Yu,PK Mensah,J Cai,EY Baagyere,FU Bawah) 
+                 Journal of intelligent & Fuzzy Systems,1-13,2022.
+               </div>
+               <div class="publication-item">
+                <i class="fas fa-caret-right"></i>
+                 Patch Based Capsule Network for Complex Images.
+        
+                 (M Abra Ayidzoe,Y Yu,PK Mensah,J Cai,FU Bawah,O Nyarko Boateng)
+                 IEEE 8th International Conference on Adaptive Science and Technology...2021.
+                 
+              </div> 
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <div class="container">
+             <h2 class="fade-in">Education</h2> 
+              <div class="education-grid">
+                <div class="edu-entry">
+                 <div class="year">2024.</div>
+                 <div class="details">
+                  <h1>Master's Degree, Cybersecurity.</h1>
+                  <p>[JAMK University of Applied Science.]</p>
+                  <p>Artificial Intelligence,Data Security,Incident Response...</p>
+                 </div>
+                </div>
+              
+               
+                <div class="edu-entry">
+                 <div class="year">2020.</div>
+                 <div class="details">
+                   <h1>Doctorate Degree,Software Engineering</h1>
+                   <p>[University of Electronic Science and Technology, China.]</p>
+                   <p>Artificial Intelligence(AL),Flask,Scikit-Learn, MLflow,
+                    Neural Networks,BERT(Language Model),
+                    Python,Artificial Neural Network and Machine Learning.
+                   </p>
+                  </div>
+                </div>
+               
+                <div class="edu-entry">
+                  <div class="year">2018.</div>
+                 <div class="details">
+                   <h1>Master's Degree,Software Engineering.</h1>
+                   <p>[University of Electronic Science and Technology, China.]</p>
+                   <p>I love my field</p> 
+                 </div>
+                </div>
+
+                <div class="edu-entry">
+                  <div class="year">2013</div>
+                  <div class="details">
+                   <h1>BSC Computing with Accounting</h1>
+                   <p>[University for Development Studies.]</p>
+                   <p>Mobile Applications,programming in Python,C++,MATHLAB,Java,HTML5.
+                    PHP,PhMyAdmin,MYSQL and PostgreSQL</p>
+                  </div>
+                </div>
+              </div>
+            </div>           
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="fade-in">Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>harundauda550@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <p>+233245636603</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form fade-in">
+                        <form id="contact Form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Name" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Message" id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+         
+          <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/posts/mighty-abra-ayidzoe-ph-d-626775161_activity-7301688165172445185-41jI?utm_source=share&utm_medium=member_android&rcm=ACoAAEnDXikBGONEY2YeejyA_QHylqQgtrb7Fhc" class="social-link linkedin" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:ayaabafatawusuaila@gmail.com" class="social-link"><i class="fa fa-envelope"></i></a>
+                <a href="https://wa.me/233538737938" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">Designed & Built by CHARISMA &copy; <span id="currentYear">2025</span></p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</body>
+</html>
